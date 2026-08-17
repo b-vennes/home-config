@@ -21,6 +21,8 @@
           git-machete
 
           nil
+
+          pkgs.home-manager
         ];
       };
     }) // {
