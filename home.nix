@@ -1,47 +1,68 @@
 { config, pkgs, ... }:
 
 {
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
   home.username = "branden";
   home.homeDirectory = "/Users/branden";
 
-  # This value determines the Home Manager release that your configuration is
-  # compatible with. This helps avoid breakage when a new Home Manager release
-  # introduces backwards incompatible changes.
-  #
-  # You should not change this value, even if you update Home Manager. If you do
-  # want to update the value, then make sure to first check the Home Manager
-  # release notes.
-  home.stateVersion = "26.05"; # Please read the comment before changing.
+  home.stateVersion = "26.05";
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
   home.packages = with pkgs; [
+    # CLIs
     git
     git-machete
     gh
-    neovim
     zsh
     starship
     tree-sitter
     ripgrep
 
-    kitty
+    neovim
 
-    # language servers
+    # Builds
+    scala-cli
+    nodejs_22
+    jdk25
+    maven
+
+    # Language Servers
     nil
     emmylua-ls
+    lombok
+    jdt-language-server
+    nil
+    vtsls
+    vue-language-server
     metals
+
+    # Apps
+    kitty
+    slack
+    firefox
+    google-chrome
+
+    # Music
+    kew
+    librespot
+    spotify-qt
+
+    # Fonts
+    nerd-fonts.iosevka
   ];
 
   home.file = {};
 
-  home.sessionVariables = {
-    # EDITOR = "emacs";
+  home.sessionVariables = with pkgs; {
+    JDTLS_JVM_ARGS = "-javaagent:${lombok.outPath}/share/java/lombok.jar";
+    JDTLS_PATH = "${jdt-language-server.outPath}/bin/jdtls";
+
+    JAVA_HOME = "${jdk25.outPath}";
+
+    BKT_CONFIG_DIR = "$HOME/.config/bkt";
+
+    VUE_LS_PATH = "${vue-language-server}/lib/language-tools/packages/language-server";
+
   };
 
-  # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
   programs.zsh = {
@@ -72,5 +93,14 @@
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
+  };
+
+  programs.kitty = {
+    enable = true;
+    font = {
+      name = "Iosevka Nerd Font";
+      size = 16;
+    };
+    themeFile = "Belafonte_Day";
   };
 }
