@@ -11,6 +11,7 @@
     git
     git-machete
     gh
+    tmux
     zsh
     starship
     tree-sitter
