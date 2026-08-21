@@ -1,4 +1,4 @@
-{ vimPlugins, ... }:
+{ vimPlugins, awesomeNeovimPlugins, ... }:
 {
   enable = true;
   defaultEditor = true;
@@ -9,8 +9,6 @@
     nvim-treesitter.withAllGrammars
 
     nvim-lspconfig
-
-    noctis-nvim
 
     mini-extra
     mini-icons
@@ -24,7 +22,11 @@
     mini-surround
     mini-trailspace
     mini-pick
-  ];
+  ] ++ (
+    with awesomeNeovimPlugins; [
+      token
+    ]
+  );
 
   initLua = #lua
     ''
@@ -169,10 +171,11 @@
       map("n", "gR", function () vim.lsp.buf.references() end)
       -- end    Mini Pick
 
-      -- start  Noctis
-      vim.cmd("syntax on")
-      vim.cmd("colorscheme noctis")
-      -- end    Noctis
+      -- start  Token
+      local Token = require("token")
+      Token.setup({})
+      vim.cmd("colorscheme token-flint")
+      -- end    Token
 
       -- start  LSP
       vim.lsp.enable("emmylua_ls")
