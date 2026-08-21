@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   home.username = "branden";
@@ -16,8 +16,6 @@
     starship
     tree-sitter
     ripgrep
-
-    neovim
 
     # Builds
     scala-cli
@@ -43,8 +41,8 @@
 
     # Music
     kew
-    librespot
-    spotify-qt
+    psst
+    spotify
 
     # Fonts
     nerd-fonts.iosevka
@@ -62,6 +60,8 @@
 
     VUE_LS_PATH = "${vue-language-server}/lib/language-tools/packages/language-server";
 
+    GIT_EDITOR = "nvim";
+    GIT_MACHETE_EDITOR = "nvim";
   };
 
   programs.home-manager.enable = true;
@@ -102,6 +102,8 @@
       name = "Iosevka Nerd Font";
       size = 16;
     };
-    themeFile = "Belafonte_Day";
+    themeFile = "Earthsong";
   };
+
+  programs.neovim = with pkgs; import ./neovim.nix { inherit vimPlugins; };
 }
