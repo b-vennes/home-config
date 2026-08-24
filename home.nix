@@ -66,6 +66,11 @@
 
   programs.home-manager.enable = true;
 
+  programs.tmux = {
+    enable = true;
+    keyMode = "vi";
+  };
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;

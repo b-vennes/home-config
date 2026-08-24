@@ -12,7 +12,7 @@
   };
 
   outputs = inputs@{ nixpkgs, flake-utils, home-manager, flake-awesome-neovim-plugins, ... }:
-    flake-utils.lib.eachSystem [ "aarch64-darwin" ] (system:
+    flake-utils.lib.eachSystem [ "aarch64-darwin" "x86_64-linux" ] (system:
     let
       pkgs = import nixpkgs {
         inherit system;
