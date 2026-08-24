@@ -16,6 +16,7 @@
     starship
     tree-sitter
     ripgrep
+    openvpn3
 
     # Builds
     scala-cli
@@ -84,7 +85,7 @@
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" ];
-      theme = "robbyrussell";
+      theme = "lambda";
     };
 
     profileExtra = ''
