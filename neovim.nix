@@ -79,6 +79,8 @@
       -- start  Mini Extra
       local MiniExtra = require("mini.extra")
       MiniExtra.setup({})
+
+      map("n", "gR", function () MiniExtra.pickers.lsp({ scope = "references" }) end)
       -- end    Mini Extra
 
       -- start  Mini Icons
@@ -168,7 +170,6 @@
       map("n", "<leader>ff", function () MiniPick.builtin.files({ tool = 'git' }) end)
       map("n", "<leader>ft", function () MiniPick.builtin.grep_live() end)
       map("n", "<leader>fb", function () MiniPick.builtin.buffers() end)
-      map("n", "gR", function () vim.lsp.buf.references() end)
       -- end    Mini Pick
 
       -- start  Token
