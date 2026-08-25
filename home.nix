@@ -111,5 +111,5 @@
     themeFile = "Earthsong";
   };
 
-  programs.neovim = with pkgs; import ./neovim.nix { inherit vimPlugins awesomeNeovimPlugins; };
+  programs.neovim = with pkgs; import ./neovim.nix { inherit vimPlugins; inherit awesomeNeovimPlugins; };
 }
