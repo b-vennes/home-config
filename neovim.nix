@@ -25,6 +25,7 @@
   ] ++ (
     with awesomeNeovimPlugins; [
       token
+      nvim-metals
     ]
   );
 
@@ -72,7 +73,12 @@
         vim.cmd("vertical resize 120")
       end)
 
+      map("n", "<leader>bd", function ()
+        vim.cmd("bdelete")
+      end)
+
       map("t", "<ESC>", "<C-\\><C-n>", { silent = true })
+
 
       -- end    General Mappings
 
@@ -81,6 +87,7 @@
       MiniExtra.setup({})
 
       map("n", "gR", function () MiniExtra.pickers.lsp({ scope = "references" }) end)
+      map("n", "<leader>fs", function () MiniExtra.pickers.lsp({ scope = "document_symbol" }) end)
       -- end    Mini Extra
 
       -- start  Mini Icons
@@ -220,5 +227,18 @@
 
       vim.lsp.enable("vtsls")
       -- end    LSP
+
+      -- start  Metals
+      local Metals = require("metals")
+
+      local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "scala" },
+        callback = function()
+          Metals.initialize_or_attach(Metals.bare_config())
+        end,
+        group = nvim_metals_group,
+      })
+      -- end    Metals
     '';
 }
