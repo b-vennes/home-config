@@ -10,6 +10,8 @@
 
     nvim-lspconfig
 
+    nvim-jdtls
+
     mini-extra
     mini-icons
     mini-files
@@ -188,7 +190,6 @@
       -- start  LSP
       vim.lsp.enable("emmylua_ls")
       vim.lsp.enable("nil_ls")
-      vim.lsp.enable("jdtls")
       vim.lsp.enable("vue_ls")
       vim.lsp.enable("smithy_ls")
 
@@ -227,6 +228,31 @@
 
       vim.lsp.enable("vtsls")
       -- end    LSP
+
+      -- start  JDTLS
+      local jdtlsConfig = {
+        name = "jdtls",
+        cmd = { "jdtls" },
+        root_dir = vim.fs.root(0, {'gradlew', '.git', 'mvnw'}),
+        settings = {
+          java = {
+          }
+        },
+        init_options = {
+          bundles = {}
+        },
+      }
+
+      local nvim_jdtls_group = vim.api.nvim_create_augroup("nvim-jdtls", { clear = true })
+      local JDTLS = require("jdtls")
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "java" },
+        callback = function()
+          JDTLS.start_or_attach(jdtlsConfig)
+        end,
+        group = nvim_jdtls_group
+      })
+      -- end    JDTLS
 
       -- start  Metals
       local Metals = require("metals")
