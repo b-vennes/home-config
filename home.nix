@@ -2,7 +2,7 @@
 
 {
   home.username = "branden";
-  home.homeDirectory = "/Users/branden";
+  home.homeDirectory = if pkgs.stdenv.isLinux then "/home/branden" else "/Users/branden";
 
   home.stateVersion = "26.05";
 
@@ -16,7 +16,6 @@
     starship
     tree-sitter
     ripgrep
-    openvpn3
 
     # Builds
     scala-cli
@@ -47,7 +46,7 @@
 
     # Fonts
     nerd-fonts.iosevka
-  ];
+  ] ++ (if pkgs.stdenv.isLinux then with pkgs; [ openvpn3 ] else []);
 
   home.file = {};
 
