@@ -69,6 +69,11 @@
   programs.tmux = {
     enable = true;
     keyMode = "vi";
+    shell = "${pkgs.zsh}/bin/zsh";
+    extraConfig = ''
+      set -g status-left-length 40
+      set -g status-style bg=default
+    '';
   };
 
   programs.zsh = {
@@ -110,5 +115,9 @@
     themeFile = "Earthsong";
   };
 
-  programs.neovim = with pkgs; import ./neovim.nix { inherit vimPlugins; inherit awesomeNeovimPlugins; };
+  programs.neovim = with pkgs; import ./neovim.nix {
+    inherit vimPlugins;
+    inherit awesomeNeovimPlugins;
+    inherit lombok;
+  };
 }

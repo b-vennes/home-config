@@ -1,4 +1,4 @@
-{ vimPlugins, awesomeNeovimPlugins, ... }:
+{ vimPlugins, awesomeNeovimPlugins, lombok, ... }:
 {
   enable = true;
   defaultEditor = true;
@@ -59,8 +59,6 @@
 
       -- start  General Mappings
       map("n", "K", lsp.hover)
-      map("n", "gD", lsp.definition)
-      map("n", "gI", lsp.implementation)
       map("n", "<leader>ca", lsp.code_action)
       map("n", "<leader>tp", function ()
         vim.cmd("tabprevious")
@@ -89,6 +87,8 @@
       MiniExtra.setup({})
 
       map("n", "gR", function () MiniExtra.pickers.lsp({ scope = "references" }) end)
+      map("n", "gD", function () MiniExtra.pickers.lsp({ scope = "definition" }) end)
+      map("n", "gI", function () MiniExtra.pickers.lsp({ scope = "implementation" }) end)
       map("n", "<leader>fs", function () MiniExtra.pickers.lsp({ scope = "document_symbol" }) end)
       -- end    Mini Extra
 
@@ -232,7 +232,10 @@
       -- start  JDTLS
       local jdtlsConfig = {
         name = "jdtls",
-        cmd = { "jdtls" },
+        cmd = {
+          "jdtls",
+          "--jvm-arg=" .. "-javaagent:${lombok.outPath}/share/java/lombok.jar"
+        },
         root_dir = vim.fs.root(0, {'gradlew', '.git', 'mvnw'}),
         settings = {
           java = {
