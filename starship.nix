@@ -15,7 +15,7 @@
       format = "on [$symbol($profile )(($region) )]($style)";
       symbol = "🅰 ";
       style = "bold yellow";
-      disabled = false;
+      disabled = true;
       expiration_symbol = "X";
       force_display = false;
     };
@@ -30,7 +30,7 @@
     };
     battery = {
       format = "[$symbol$percentage]($style) ";
-      disabled = false;
+      disabled = true;
       display = [
         {
           style = "red bold";
@@ -43,7 +43,7 @@
       version_format = "v$raw";
       symbol = "";
       style = "bold blue";
-      disabled = false;
+      disabled = true;
       detect_extensions = [];
       detect_files = [
         "buf.yaml"
@@ -113,7 +113,7 @@
       version_format = "v$raw";
       symbol = "⚙️ ";
       style = "bold blue";
-      disabled = false;
+      disabled = true;
       detect_extensions = [
         "cbl"
         "cob"
@@ -129,7 +129,7 @@
       symbol = " ";
       style = "green bold";
       ignore_base = true;
-      disabled = false;
+      disabled = true;
     };
     container = {
       format = "[$symbol [$name]]($style) ";
@@ -142,7 +142,7 @@
       version_format = "v$raw";
       symbol = "🔮 ";
       style = "bold red";
-      disabled = false;
+      disabled = true;
       detect_extensions = ["cr"];
       detect_files = ["shard.yml"];
       detect_folders = [];
@@ -152,7 +152,7 @@
       version_format = "v$raw";
       symbol = "🎯 ";
       style = "bold blue";
-      disabled = false;
+      disabled = true;
       detect_extensions = ["dart"];
       detect_files = [
         "pubspec.yaml"
@@ -227,7 +227,7 @@
       symbol = "🥅 ";
       style = "blue bold";
       heuristic = true;
-      disabled = false;
+      disabled = true;
       detect_extensions = [
         "csproj"
         "fsproj"
@@ -247,7 +247,7 @@
       version_format = "v$raw";
       style = "bold purple bg:0x86BBD8";
       symbol = " ";
-      disabled = false;
+      disabled = true;
       detect_extensions = [];
       detect_files = ["mix.exs"];
       detect_folders = [];
@@ -257,7 +257,7 @@
       version_format = "v$raw";
       style = "cyan bold bg:0x86BBD8";
       symbol = " ";
-      disabled = false;
+      disabled = true;
       detect_extensions = ["elm"];
       detect_files = [
         "elm.json"
@@ -287,7 +287,7 @@
       version_format = "v$raw";
       symbol = " ";
       style = "bold red";
-      disabled = false;
+      disabled = true;
       detect_extensions = [];
       detect_files = [
         "rebar.config"
@@ -304,7 +304,7 @@
       format = "[$symbol$account(@$domain)(($region))(($project))]($style) ";
       symbol = "☁️ ";
       style = "bold blue";
-      disabled = false;
+      disabled = true;
     };
     gcloud.project_aliases = {};
     gcloud.region_aliases = {};
@@ -369,7 +369,7 @@
       version_format = "v$raw";
       symbol = " ";
       style = "bold cyan bg:0x86BBD8";
-      disabled = false;
+      disabled = true;
       detect_extensions = ["go"];
       detect_files = [
         "go.mod"
@@ -386,7 +386,7 @@
       version_format = "v$raw";
       symbol = "λ ";
       style = "bold purple bg:0x86BBD8";
-      disabled = false;
+      disabled = true;
       detect_extensions = [
         "hs"
         "cabal"
@@ -403,7 +403,7 @@
       version_format = "v$raw";
       symbol = "⎈ ";
       style = "bold white";
-      disabled = false;
+      disabled = true;
       detect_extensions = [];
       detect_files = [
         "helmfile.yaml"
@@ -461,7 +461,7 @@
       disabled = false;
     };
     julia = {
-      disabled = false;
+      disabled = true;
       format = "[$symbol($version )]($style)";
       style = "bold purple bg:0x86BBD8";
       symbol = " ";
@@ -479,7 +479,7 @@
       symbol = "🅺 ";
       style = "bold blue";
       kotlin_binary = "kotlin";
-      disabled = false;
+      disabled = true;
       detect_extensions = [
         "kt"
         "kts"
@@ -488,7 +488,7 @@
       detect_folders = [];
     };
     kubernetes = {
-      disabled = false;
+      disabled = true;
       format = "[$symbol$context( ($namespace))]($style) in ";
       style = "cyan bold";
       symbol = "⛵ ";
@@ -500,7 +500,7 @@
     localip = {
       disabled = false;
       format = "[@$localipv4]($style) ";
-      ssh_only = false;
+      ssh_only = true;
       style = "yellow bold";
     };
     lua = {
@@ -516,8 +516,9 @@
     };
     memory_usage = {
       disabled = false;
-      format = "$symbol[$ram( | $swap)]($style) ";
+      format = "$symbol [$ram( | $swap)]($style) ";
       style = "white bold dimmed";
+      symbol = "󰍛";
       # threshold = 75;
       threshold = -1;
     };
@@ -525,7 +526,7 @@
       format = "[$symbol($version )]($style)";
       style = "yellow bold bg:0x86BBD8";
       version_format = "v$raw";
-      disabled = false;
+      disabled = true;
       detect_extensions = [
         "nim"
         "nims"
@@ -556,6 +557,7 @@
         "ts"
         "mts"
         "cts"
+        "vue"
       ];
       detect_files = [
         "package.json"
@@ -571,7 +573,7 @@
       style = "bold yellow";
       symbol = "🐫 ";
       version_format = "v$raw";
-      disabled = false;
+      disabled = true;
       detect_extensions = [
         "opam"
         "ml"
@@ -610,7 +612,7 @@
       version_format = "v$raw";
       symbol = "🐪 ";
       style = "149 bold";
-      disabled = false;
+      disabled = true;
       detect_extensions = [
         "pl"
         "pm"
@@ -632,7 +634,7 @@
       version_format = "v$raw";
       symbol = "🐘 ";
       style = "147 bold";
-      disabled = false;
+      disabled = true;
       detect_extensions = ["php"];
       detect_files = [
         "composer.json"
@@ -645,14 +647,14 @@
       version_format = "v$raw";
       symbol = " ";
       style = "bold 5";
-      disabled = false;
+      disabled = true;
     };
     purescript = {
       format = "[$symbol($version )]($style)";
       version_format = "v$raw";
       symbol = "<=> ";
       style = "bold white";
-      disabled = false;
+      disabled = true;
       detect_extensions = ["purs"];
       detect_files = ["spago.dhall"];
       detect_folders = [];
@@ -687,7 +689,7 @@
       version_format = "v$raw";
       symbol = "🔺 ";
       style = "red bold";
-      disabled = false;
+      disabled = true;
       detect_extensions = [
         "red"
         "reds"
@@ -700,7 +702,7 @@
       version_format = "v$raw";
       style = "blue bold";
       symbol = "📐 ";
-      disabled = false;
+      disabled = true;
       detect_extensions = [
         "R"
         "Rd"
@@ -716,7 +718,7 @@
       version_format = "v$raw";
       symbol = "💎 ";
       style = "bold red";
-      disabled = false;
+      disabled = true;
       detect_extensions = ["rb"];
       detect_files = [
         "Gemfile"
@@ -733,7 +735,7 @@
       version_format = "v$raw";
       symbol = "🦀 ";
       style = "bold red bg:0x86BBD8";
-      disabled = false;
+      disabled = true;
       detect_extensions = ["rs"];
       detect_files = ["Cargo.toml"];
       detect_folders = [];
@@ -783,14 +785,14 @@
       format = "[$symbol[$env]]($style) ";
       style = "blue bold dimmed";
       symbol = "📦 ";
-      disabled = false;
+      disabled = true;
     };
     spack = {
       truncation_length = 1;
       format = "[$symbol$environment]($style) ";
       symbol = "🅢 ";
       style = "blue bold";
-      disabled = false;
+      disabled = true;
     };
     status = {
       format = "[$symbol$status]($style) ";
@@ -802,24 +804,24 @@
       pipestatus_separator = "|";
       recognize_signal_code = true;
       signal_symbol = "⚡";
-      style = "bold red bg:blue";
-      success_symbol = "🟢 SUCCESS";
+      style = "bold red";
+      success_symbol = "🟢 ";
       symbol = "🔴 ";
-      disabled = true;
+      disabled = false;
     };
     sudo = {
       format = "[as $symbol]($style)";
       symbol = "🧙 ";
       style = "bold blue";
       allow_windows = false;
-      disabled = true;
+      disabled = false;
     };
     swift = {
       format = "[$symbol($version )]($style)";
       version_format = "v$raw";
       symbol = "🐦 ";
       style = "bold 202";
-      disabled = false;
+      disabled = true;
       detect_extensions = ["swift"];
       detect_files = ["Package.swift"];
       detect_folders = [];
@@ -860,7 +862,7 @@
       version_format = "v$raw";
       symbol = "⍱ ";
       style = "cyan bold";
-      disabled = false;
+      disabled = true;
       detect_extensions = [];
       detect_files = ["Vagrantfile"];
       detect_folders = [];
@@ -869,14 +871,14 @@
       symbol = "";
       style = "bold yellow";
       format = "[$symbol$repo]($style) ";
-      disabled = false;
+      disabled = true;
     };
     vlang = {
       format = "[$symbol($version )]($style)";
       version_format = "v$raw";
       symbol = "V ";
       style = "blue bold";
-      disabled = false;
+      disabled = true;
       detect_extensions = ["v"];
       detect_files = [
         "v.mod"
@@ -890,7 +892,7 @@
       version_format = "v$raw";
       symbol = "↯ ";
       style = "bold yellow";
-      disabled = false;
+      disabled = true;
       detect_extensions = ["zig"];
       detect_files = [];
       detect_folders = [];
