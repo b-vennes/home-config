@@ -16,7 +16,6 @@
     let
       pkgs = import nixpkgs {
         inherit system;
-        config.allowUnfree = true;
         overlays = [ flake-awesome-neovim-plugins.overlays.default ];
       };
     in

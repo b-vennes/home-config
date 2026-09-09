@@ -5,6 +5,7 @@
   home.homeDirectory = if pkgs.stdenv.isLinux then "/home/branden" else "/Users/branden";
 
   home.stateVersion = "26.05";
+  nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
     # CLIs
@@ -101,10 +102,7 @@
     '';
   };
 
-  programs.starship = {
-    enable = true;
-    enableZshIntegration = true;
-  };
+  programs.starship = import ./starship.nix;
 
   programs.kitty = {
     enable = true;
@@ -112,7 +110,7 @@
       name = "Iosevka Nerd Font";
       size = 16;
     };
-    themeFile = "Earthsong";
+    themeFile = "Homebrew";
   };
 
   programs.neovim = with pkgs; import ./neovim.nix {

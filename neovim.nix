@@ -26,7 +26,10 @@
     mini-pick
   ] ++ (
     with awesomeNeovimPlugins; [
+      # themes
       token
+      citruszest-nvim
+
       nvim-metals
     ]
   );
@@ -184,8 +187,13 @@
       -- start  Token
       local Token = require("token")
       Token.setup({})
-      vim.cmd("colorscheme token-flint")
       -- end    Token
+
+      -- start  Citruszest
+      local Citruszest = require("citruszest")
+      Citruszest.setup({})
+      vim.cmd("colorscheme citruszest")
+      -- end    Citruszest
 
       -- start  LSP
       vim.lsp.enable("emmylua_ls")
