@@ -107,10 +107,10 @@
   programs.kitty = {
     enable = true;
     font = {
-      name = "Iosevka Nerd Font";
+      name = "GoMono Nerd Font";
       size = 16;
     };
-    themeFile = "Homebrew";
+    themeFile = "Twilight";
   };
 
   programs.neovim = with pkgs; import ./neovim.nix {

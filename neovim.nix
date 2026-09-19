@@ -49,6 +49,8 @@
 
       vim.wo.wrap = true
 
+      vim.opt.ignorecase = true
+
       vim.cmd("set tabstop=2")
       vim.cmd("set shiftwidth=2")
       vim.cmd("set expandtab")
@@ -192,8 +194,11 @@
       -- start  Citruszest
       local Citruszest = require("citruszest")
       Citruszest.setup({})
-      vim.cmd("colorscheme citruszest")
       -- end    Citruszest
+
+      -- start Colorscheme
+      vim.cmd("colorscheme token")
+      -- end
 
       -- start  LSP
       vim.lsp.enable("emmylua_ls")

@@ -339,7 +339,7 @@
       am = "AM";
       am_or_rebase = "AM/REBASE";
       bisect = "BISECTING";
-      cherry_pick = "🍒PICKING(bold red)";
+      cherry_pick = "PICKING(bold red)";
       disabled = false;
       format = "([$state( $progress_current/$progress_total)]($style)) ";
       merge = "MERGING";
@@ -348,20 +348,20 @@
       style = "bold yellow";
     };
     git_status = {
-      ahead = "🏎💨$count";
-      behind = "😰$count";
-      conflicted = "🏳";
+      ahead = "󱝣 $count";
+      behind = "󱝐 $count";
+      conflicted = " ";
       deleted = "🗑";
       disabled = false;
-      diverged = "😵";
+      diverged = "󰃻 ";
       format = "([$all_status$ahead_behind]($style) )";
       ignore_submodules = false;
-      modified = "📝";
-      renamed = "👅";
-      staged = "[++($count)](green)";
-      stashed = "📦";
+      modified = "󰙏 ";
+      renamed = "renamed";
+      staged = "[ ($count)](green)";
+      stashed = " ";
       style = "red bold bg:0xFCA17D";
-      untracked = "🤷";
+      untracked = "󰽷";
       up_to_date = "✓";
     };
     golang = {
@@ -536,10 +536,10 @@
       detect_folders = [];
     };
     nix_shell = {
-      format = "[$symbol$state( ($name))]($style) ";
+      format = "[$symbol]($style) ";
       disabled = false;
-      impure_msg = "[impure](bold red)";
-      pure_msg = "[pure](bold green)";
+      impure_msg = "[](bold red)";
+      pure_msg = "[](bold green)";
       style = "bold blue";
       symbol = " ";
     };
@@ -601,7 +601,7 @@
     };
     package = {
       format = "[$symbol$version]($style) ";
-      symbol = "📦 ";
+      symbol = "󰏔 ";
       style = "208 bold";
       display_private = false;
       disabled = false;
