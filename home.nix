@@ -110,7 +110,7 @@
       name = "GoMono Nerd Font";
       size = 16;
     };
-    themeFile = "Twilight";
+    themeFile = "Novel";
   };
 
   programs.neovim = with pkgs; import ./neovim.nix {

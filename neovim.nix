@@ -197,7 +197,8 @@
       -- end    Citruszest
 
       -- start Colorscheme
-      vim.cmd("colorscheme token")
+      vim.o.background = "light"
+      vim.cmd("colorscheme token-temper")
       -- end
 
       -- start  LSP

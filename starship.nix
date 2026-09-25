@@ -423,7 +423,7 @@
       disabled = false;
       format = "[$ssh_symbol](blue dimmed bold)[$hostname]($style) ";
       ssh_only = false;
-      style = "green dimmed bold";
+      style = "grey bold";
       trim_at = ".";
     };
     java = {
@@ -517,7 +517,7 @@
     memory_usage = {
       disabled = false;
       format = "$symbol [$ram( | $swap)]($style) ";
-      style = "white bold dimmed";
+      style = "grey bold";
       symbol = "󰍛";
       # threshold = 75;
       threshold = -1;
@@ -766,7 +766,7 @@
       ion_indicator = "ion";
       nu_indicator = "nu";
       powershell_indicator = "_";
-      style = "white bold";
+      style = "grey bold";
       tcsh_indicator = "tsh";
       unknown_indicator = "mystery shell";
       xonsh_indicator = "xsh";
@@ -795,7 +795,7 @@
       disabled = true;
     };
     status = {
-      format = "[$symbol$status]($style) ";
+      format = "[$status]($style) ";
       map_symbol = true;
       not_executable_symbol = "🚫";
       not_found_symbol = "🔍";
