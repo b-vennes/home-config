@@ -1,7 +1,9 @@
 { pkgs, ... }:
 
-{
-  home.username = "branden";
+let
+  username = "branden";
+in {
+  home.username = username;
   home.homeDirectory = if pkgs.stdenv.isLinux then "/home/branden" else "/Users/branden";
 
   home.stateVersion = "26.05";
@@ -117,5 +119,20 @@
     inherit vimPlugins;
     inherit awesomeNeovimPlugins;
     inherit lombok;
+  };
+
+  programs.firefox = {
+    enable = true;
+
+    profiles = {
+        "personal" = {
+          id = 0;
+          path = username;
+
+          settings = {
+            "browser.aboutConfig.showWarning" = false;
+          };
+        };
+    };
   };
 }

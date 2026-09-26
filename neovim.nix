@@ -206,6 +206,7 @@
       vim.lsp.enable("nil_ls")
       vim.lsp.enable("vue_ls")
       vim.lsp.enable("smithy_ls")
+      vim.lsp.enable("clangd")
 
       local vue_language_server_path = os.getenv("VUE_LS_PATH")
 
